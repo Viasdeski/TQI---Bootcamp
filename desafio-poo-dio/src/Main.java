@@ -4,39 +4,63 @@ import br.com.dio.vitor.dominio.Dev;
 import br.com.dio.vitor.dominio.Mentoria;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
         Curso curso1 = new Curso();
-        curso1.setTitulo("curso java");
-        curso1.setDescricao("descrição curso java");
-        curso1.setCargaHoraria(8);
+
+        System.out.println("Digite o nome do curso a ser cadastrado: ");
+        curso1.setTitulo(input.nextLine());
+
+        System.out.println("Descreva o curso: ");
+        curso1.setDescricao(input.nextLine());
+
+        System.out.println("Qual a carga horária do curso? ");
+        curso1.setCargaHoraria(input.nextInt());
+        input.nextLine();
 
         Curso curso2 = new Curso();
-        curso2.setTitulo("curso js");
-        curso2.setDescricao("descrição curso js");
-        curso2.setCargaHoraria(4);
+
+        System.out.println("Digite o nome do novo curso a ser cadastrado: ");
+        curso2.setTitulo(input.nextLine());
+
+        System.out.println("Descreva o curso: ");
+        curso2.setDescricao(input.nextLine());
+
+        System.out.println("Qual a carga horária do curso? ");
+        curso2.setCargaHoraria(input.nextInt());
+        input.nextLine();
+
 
         Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("mentoria de java");
-        mentoria.setDescricao("descrição mentoria java");
+
+        System.out.println("Digite o nome da mentoria a ser cadastrada: ");
+        mentoria.setTitulo(input.nextLine());
+
+        System.out.println("Descreva a mentoria: ");
+        mentoria.setDescricao(input.nextLine());
         mentoria.setData(LocalDate.now());
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
-
         Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java Developer");
-        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria);
+
+        System.out.println("Informe o nome do Bootcamp a ser cadastrado: ");
+        bootcamp.setNome(input.nextLine());
+
+        System.out.println("Descreva o Bootcamp: ");
+        bootcamp.setDescricao(input.nextLine());
+        bootcamp.adicionarConteudo(curso1);
+        bootcamp.adicionarConteudo(curso2);
+        bootcamp.adicionarConteudo(mentoria);
 
         Dev devVitor = new Dev();
-        devVitor.setNome("Vitor");
+
+        System.out.println("Informe o nome do desenvolvedor a ser cadastrado: ");
+        devVitor.setNome(input.nextLine());
         devVitor.inscreverBootcamp(bootcamp);
+
         System.out.println("Conteúdos Inscritos Vitor:" + devVitor.getConteudosInscritos());
         devVitor.progredir();
         devVitor.progredir();
@@ -48,8 +72,11 @@ public class Main {
         System.out.println("-------");
 
         Dev devJoao = new Dev();
-        devJoao.setNome("Joao");
+
+        System.out.println("Informe o nome do novo desenvolvedor a ser cadastrado: ");
+        devJoao.setNome(input.nextLine());
         devJoao.inscreverBootcamp(bootcamp);
+
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         devJoao.progredir();
         devJoao.progredir();

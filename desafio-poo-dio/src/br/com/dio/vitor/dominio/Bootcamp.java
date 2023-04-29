@@ -56,6 +56,10 @@ public class Bootcamp {
         this.conteudos = conteudos;
     }
 
+    public void adicionarConteudo(Conteudo conteudo) {
+        this.getConteudos().add(conteudo);
+    }
+
 
     @Override
     public boolean equals(Object o) {
