@@ -29,7 +29,7 @@ class CustomerServiceTest {
     @Test
     fun `should create customer`() {
         //given = DADOS A SEREM RECEBIDOS
-        val fakeCustomer : Customer = builderCustomer()
+        val fakeCustomer : CustomerDto = builderCustomer()
 
 
         //when = METODO A SER TESTADO
@@ -40,14 +40,14 @@ class CustomerServiceTest {
 
 
     private fun builderCustomer(
-        firstName: String = "Cami",
-        lastName: String = "Cavalcante",
+        firstName: String = "Vitor",
+        lastName: String = "Dev",
         cpf: String = "28475934625",
-        email: String = "camila@email.com",
+        email: String = "vitordev@email.com",
         income: BigDecimal = BigDecimal.valueOf(1000.0),
         password: String = "1234",
         zipCode: String = "000000",
-        street: String = "Rua da Cami, 123",
+        street: String = "Rua do Vitor, 987",
     ) = CustomerDto(
         firstName = firstName,
         lastName = lastName,
@@ -60,10 +60,10 @@ class CustomerServiceTest {
     )
 
     private fun builderCustomerUpdateDto(
-        firstName: String = "CamiUpdate",
-        lastName: String = "CavalcanteUpdate",
+        firstName: String = "VitorUpdate",
+        lastName: String = "VitorUpdate",
         income: BigDecimal = BigDecimal.valueOf(5000.0),
-        zipCode: String = "45656",
+        zipCode: String = "369369",
         street: String = "Rua Updated"
     ): CustomerUpdateDto = CustomerUpdateDto(
         firstName = firstName,
